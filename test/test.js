@@ -46,4 +46,13 @@ plugin(data)
 if (data.content !== '{% asset_img "this is test.png" \'"" "alt"\' %}')
     throw "failed."
 
+
+/**
+ * 6. ignore url pattern
+ */
+data.content = '![alt](https://localhost/avatar.png)'
+plugin(data)
+if (data.content !== '![alt](https://localhost/avatar.png)')
+    throw "failed."
+ 
 console.log("success.")
